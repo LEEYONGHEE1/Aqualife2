@@ -14,6 +14,7 @@ class MyAlarmReceiver : BroadcastReceiver() {
         if (intent?.action == "MyBroadcastReceiverAction") {
             Log.d("알람", "RECEIVED")
             authViewModel.changeAlarmState((acti))
+            //TODO 연결
 
         }
     }
