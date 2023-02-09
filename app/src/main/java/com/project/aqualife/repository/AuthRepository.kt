@@ -72,16 +72,16 @@ class AuthRepository {
         reference.child("warning_max").setValue(a)
         reference.child("warning_min").setValue(b)
     }
-
+    // 환수 설정 변경
     fun changeFiltSetting(name: String, dayCode: String, starttime : String ,amount: Int) {
         val reference = firebaseDB.reference.child("${firebaseAuth.uid}").child(name).child("filtration")
         reference.child("dayCode").setValue(dayCode)
         reference.child("starttime").setValue(starttime)
         reference.child("amount").setValue(amount)
     }
-
-    fun changeAlarmState(state : String) {
-        val reference = firebaseDB.reference.child("${firebaseAuth.uid}").child("test1").child("filtration")
+    // 알람 시간에 시작 상태 변경
+    fun changeAlarmState(name: String, state : String) {
+        val reference = firebaseDB.reference.child("${firebaseAuth.uid}").child(name).child("filtration")
         reference.child("state").setValue(state)
     }
 

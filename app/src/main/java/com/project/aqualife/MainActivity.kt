@@ -28,6 +28,7 @@ import java.time.Year
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding : ActivityMainBinding
     private var tabName = listOf("PH", "HOME", "FILTRATION", "LIGHT", "REGULATOR", "TEMPERATURE")
     var viewPager : ViewPager2? = null

@@ -71,6 +71,7 @@ class FiltrationSettingFragment : Fragment(){
         var amountButtonArray = listOf<Button>(cb1,cb2,cb3,cb4)
         var (cb1c, cb2c, cb3c, cb4c) = arrayOf(0,0,0,0)
 
+
         timePicker.setOnTimeChangedListener { _, hour, minute ->
             filtTime = "$hour:$minute"
             timeHour = hour
@@ -260,6 +261,7 @@ class FiltrationSettingFragment : Fragment(){
             var daycode = "${sdbc}${mdbc}${tdbc}${wdbc}${thdbc}${fdbc}${sadbc}"
             var s = (activity as MainActivity).getSpinnerData().first
             authViewModel.changeFiltSetting((activity as MainActivity).getSpinnerData().first, daycode, filtTime, chargeCount)
+
             Log.d("알람","${s}")
 
             Toast.makeText(context, "환수 설정 완료!!", Toast.LENGTH_LONG).show()
@@ -332,7 +334,6 @@ class FiltrationSettingFragment : Fragment(){
 
         val dayOfWeekNumber = calendar[Calendar.DAY_OF_WEEK]
 
-
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M) {
             alarmManager.setAlarmClock(
                 AlarmManager.AlarmClockInfo(alarmTimeAtUTC, pendingIntent),
@@ -342,6 +343,7 @@ class FiltrationSettingFragment : Fragment(){
 
             if(daycode[dayOfWeekNumber-1] == '1') {
                 Log.d("알람", "설정 완료!")
+
                 alarmManager.setAndAllowWhileIdle(
                     AlarmManager.RTC_WAKEUP,
                     calendar.timeInMillis,

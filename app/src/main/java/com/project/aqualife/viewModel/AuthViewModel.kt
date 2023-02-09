@@ -51,12 +51,12 @@ class AuthViewModel : ViewModel() {
         authRepository.changePhSetting(name, Maxvalue, Minvalue)
     }
     // 환수 설정값 변경
-    fun changeFiltSetting(name : String, dayCode : String, time : String, filtCount : Int) {
-        authRepository.changeFiltSetting(name, dayCode,time, filtCount)
+    fun changeFiltSetting(name: String, dayCode: String, time: String, filtCount: Int) {
+        authRepository.changeFiltSetting(name, dayCode, time, filtCount)
     }
     // 알람 울리면 state 상태값 변경
-    fun changeAlarmState(state: String) {
-        authRepository.changeAlarmState(state)
+    fun changeAlarmState(name: String, state: String) {
+        authRepository.changeAlarmState(name, state)
     }
 
     fun logout(){
