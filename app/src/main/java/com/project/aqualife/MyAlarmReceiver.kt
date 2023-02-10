@@ -19,7 +19,6 @@ class MyAlarmReceiver : BroadcastReceiver() {
             Log.d("알람","RECEIVED")
 
 
-
         }
     }
 
