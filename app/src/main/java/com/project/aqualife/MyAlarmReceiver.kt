@@ -21,6 +21,4 @@ class MyAlarmReceiver : BroadcastReceiver() {
 
         }
     }
-
-
 }
