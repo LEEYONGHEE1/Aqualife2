@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.IntentSender
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -18,13 +19,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.project.aqualife.MainActivity
 import com.project.aqualife.MyAlarmReceiver
+import com.project.aqualife.ReceiverCallback
 import com.project.aqualife.databinding.FiltrationSettingFragmentBinding
 import com.project.aqualife.viewModel.AuthViewModel
 import com.project.aqualife.viewModel.DataViewModel
 import java.util.*
 
 
-class FiltrationSettingFragment : Fragment(){
+class FiltrationSettingFragment : Fragment() {
 
     private var binding : FiltrationSettingFragmentBinding? = null
     private var filtTime = ""
@@ -70,6 +72,8 @@ class FiltrationSettingFragment : Fragment(){
         var weekArray = listOf<Button>(sdb, mdb, tdb, wdb, thdb, fdb, sadb)
         var amountButtonArray = listOf<Button>(cb1,cb2,cb3,cb4)
         var (cb1c, cb2c, cb3c, cb4c) = arrayOf(0,0,0,0)
+
+
 
 
         timePicker.setOnTimeChangedListener { _, hour, minute ->
@@ -272,8 +276,6 @@ class FiltrationSettingFragment : Fragment(){
         return binding!!.root
     }
 
-
-
     fun setColor(weekArray: List<Button>, dayCodeToken: List<String>) {
         for(i : Int in 0..6 ) {
             if(dayCodeToken[i] == "1") {
@@ -282,6 +284,8 @@ class FiltrationSettingFragment : Fragment(){
             }
         }
     }
+
+
 
     fun setFiltAmount(amountButtonArray: List<Button>, amount: String) {
         if(amount == "1") {
@@ -366,6 +370,23 @@ class FiltrationSettingFragment : Fragment(){
         pendingIntent.cancel()
     }
 
+    override fun startIntentSenderForResult(
+        intent: IntentSender?,
+        requestCode: Int,
+        fillInIntent: Intent?,
+        flagsMask: Int,
+        flagsValues: Int,
+        extraFlags: Int,
+        options: Bundle?,
+    ) {
+        super.startIntentSenderForResult(intent,
+            requestCode,
+            fillInIntent,
+            flagsMask,
+            flagsValues,
+            extraFlags,
+            options)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
