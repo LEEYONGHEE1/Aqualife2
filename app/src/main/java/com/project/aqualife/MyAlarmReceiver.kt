@@ -18,7 +18,7 @@ class MyAlarmReceiver : BroadcastReceiver() {
             authViewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
 
 
-            authViewModel.changeFiltSetting((activity as MainActivity).getSpinnerData().first, daycode, filtTime, chargeCount)
+            authViewModel.changeFiltSetting( (activity as MainActivity).getSpinnerData().first, daycode, filtTime, chargeCount)
 
         }
     }
