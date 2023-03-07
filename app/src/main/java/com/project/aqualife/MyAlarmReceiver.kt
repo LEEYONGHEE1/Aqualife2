@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.project.aqualife.viewModel.AuthViewModel
 
+//43ㅐ 컴포넌트
 class MyAlarmReceiver : BroadcastReceiver() {
 
     private lateinit var authViewModel : AuthViewModel
@@ -16,8 +17,6 @@ class MyAlarmReceiver : BroadcastReceiver() {
             Log.d("알람","RECEIVED")
 
             authViewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
-
-
             authViewModel.changeFiltSetting( (activity as MainActivity).getSpinnerData().first, daycode, filtTime, chargeCount)
 
         }
