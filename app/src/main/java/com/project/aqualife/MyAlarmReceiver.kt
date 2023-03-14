@@ -22,6 +22,7 @@ class MyAlarmReceiver : BroadcastReceiver() {
         }
     }
 
+
     private fun cancelAlarm() {
         val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, MyAlarmReceiver::class.java)
